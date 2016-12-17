@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Uniform Car Example</title>
+
+		<!-- Source jQuery for client code -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<!-- Submit form as a POST to /submit -->
+		<form method="POST" action="/submit">
+			<input name="hasCar" type="checkbox" checked="true"/>I have a car
+			<div id="subForm">
+				Make: <input name="make" type="text" /><br />
+				Model: <input name="model" type="text" /><br />
+				Year: <input name="year" type="text" />
+			</div>
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
