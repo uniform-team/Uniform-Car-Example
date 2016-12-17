@@ -1,0 +1,29 @@
+{
+  "name": "uniform-car-example",
+  "version": "1.0.0",
+  "description": "Example walkthrough of setting up Uniform for client and server validation for a simple form.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "uniform-validation": "^0.1.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dgp1130@github.com/uniform-team/Uniform-Car-Example.git"
+  },
+  "keywords": [
+    "uniform",
+    "uniform-validation-language",
+    "interactive-repository"
+  ],
+  "author": "Douglas Parker",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/uniform-team/Uniform-Car-Example/issues"
+  },
+  "homepage": "https://github.com/uniform-team/Uniform-Car-Example#readme"
+}
