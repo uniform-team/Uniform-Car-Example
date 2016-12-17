@@ -1,0 +1,31 @@
+// Declare HTML <input /> elements by name
+boolean: hasCar;
+string: make;
+string: model;
+string: year;
+
+// The entire form is valid if the user
+// 1) does not have a car or
+// 2) they correctly entered their vehicle's information
+valid: not hasCar or @carForm.valid;
+
+// Define the car information as a subform
+@carForm {
+    // The subform is valid when make, model, and year are all valid
+    valid: make.valid and model.valid and year.valid;
+    
+    make {
+        // make is valid when it is filled
+        valid: not make equals "";
+    }
+    
+    model {
+        // model is valid when it is filled
+        valid: not model equals "";
+    }
+    
+    year {
+        // year is valid when it is exactly four digits
+        valid: year matches /[0-9]{4}/x;
+    }
+}
