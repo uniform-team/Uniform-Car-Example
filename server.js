@@ -8,6 +8,13 @@ var validator = require("uniform-validation");
 // Serve the www/ directory to clients
 app.use(express.static("www"));
 
+// Serve the client-side library to /uniform.js
+app.get("/uniform.js", function (req, res) {
+    validator.getClientLib().then(function (lib) {
+	res.end(lib);
+    });
+});
+
 // On POST to /submit, validate with Uniform
 app.post("/submit", validator("www/car.ufm"), function (req, res) {
     res.end("Valid :)");

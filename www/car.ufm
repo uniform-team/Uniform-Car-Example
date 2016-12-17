@@ -13,6 +13,8 @@ valid: not hasCar or @carForm.valid;
 @carForm {
     // The subform is valid when make, model, and year are all valid
     valid: make.valid and model.valid and year.valid;
+    selector: "#subForm";
+    enabled: hasCar;
     
     make {
         // make is valid when it is filled
