@@ -17,6 +17,18 @@ app.get("/uniform.js", function (req, res) {
 
 // On POST to /submit, validate with Uniform
 app.post("/submit", validator("www/car.ufm"), function (req, res) {
+    var result = req.ufmResult;
+    var output;
+    
+    if (!result.hasCar) {
+	output = "User does not own a car."
+    } else {
+	var car = result.car;
+	output = "User owns a " + car.myYear + " " + car.myMake
+	    + " " + car.myModel + ".";
+    }
+    
+    console.log(output);
     res.end("Valid :)");
 }, function (err, req, res, next) {
     res.end("Invalid :(");

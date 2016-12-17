@@ -8,6 +8,10 @@ string: year;
 // 1) does not have a car or
 // 2) they correctly entered their vehicle's information
 valid: not hasCar or @carForm.valid;
+result: {
+    hasCar: hasCar;
+    car: @carForm.result;
+};
 
 // Define the car information as a subform
 @carForm {
@@ -15,6 +19,11 @@ valid: not hasCar or @carForm.valid;
     valid: make.valid and model.valid and year.valid;
     selector: "#subForm";
     enabled: hasCar;
+    result: {
+        myMake: make;
+        myModel: model;
+        myYear: year;
+    };
     
     make {
         // make is valid when it is filled
