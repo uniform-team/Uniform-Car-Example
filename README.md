@@ -1,7 +1,14 @@
 Uniform Car Example Interative Repository
 ==========================
 
-This example will show you how to create a new NodeJS server, set up a simple form, install Uniform, and then validate that form. This is an interactive Git repository, so you can pull the code and follow along with each step.
+This example will show you how to:
+* Create a new NodeJS server
+* Set up a simple form
+* Install Uniform
+* Use uniform to validate that form
+
+This is an interactive Git repository, so you can pull the code and follow along with each step.
+Let's get started.
 
 TODO: Insert picture / explanation of final product here?
 
@@ -10,8 +17,12 @@ Prerequisites
 
 This example expects basic comprehension of web development, understanding the difference between the client and server, some general HTML and JavaScript, as well as some knowledge of NodeJS as a server-side language. 
 
-Install NodeJS: TODO: ...
-Install Git: TODO: ...
+You will also need to download NodeJS and Git onto your machine if you have not already.
+
+Install NodeJS: https://nodejs.org/en/download/  
+Install Git: https://git-scm.com/  
+  
+We will also be using express as a server, but as long as you have nodejs, the express setup process will be explained.
 
 First, clone the repository by opening a command prompt and running:
 
@@ -19,18 +30,34 @@ First, clone the repository by opening a command prompt and running:
 $ git clone https://github.com/uniform-team/Uniform-Car-Example.git uniform-car-example
 $ cd uniform-car-example
 ```
+Note: All command line commands can be executed on any operating system.
 
-You can install the finished product with the command `$ npm install` and run it with `$ node server.js`. Then open your browser and navigate to `http://localhost:8000` to view the web page. Play around with the form to get a feel for what the objective is. Reset to an empty project to get started by running:
+To preview what we will be building in this tutorial, you can install the finished product with the command `$ npm install` and run it with `$ node server.js`. Then open your browser and navigate to `http://localhost:8000` to view the web page. Play around with the form to get a feel for what the objective is. Reset to an empty project to get started by running:
 
 ```bash
 $ git checkout -f step-1
 ```
 
+There will be several checkponts throughout this tutorial, and if you ever get lost, you can always return to a previous step using the above command and the desired setp number.
+
 Creating a NodeJS Server
 ==========================
 
-First step is to install dependencies. This example will use the `express` framework to simplify the server-side code, though `express` is not required for Uniform to function. TODO: Express link
+First step is to install dependencies. This example will use the `express` framework to simplify the server-side code, though `express` is not required for Uniform to function.
 
+Express setup: http://expressjs.com/en/starter/installing.html
+
+Make sure you have NodeJs installed and run
+```bash
+$ npm init
+```
+Either change the default settings or keep hitting enter until you get to 
+```bash 
+entry point: (index.js)
+```
+and type "server.js".
+
+Accept the remaining defaults and then use the following command to install express:
 ```bash
 $ npm install express --save
 ```
@@ -50,6 +77,7 @@ app.use(express.static("www"));
 
 // On POST to /submit, validate the form
 app.post("/submit", function (req, res) {
+    //there is no validator yet, so any submit is valid for now
     res.end("I guess it's valid?");
 });
 
@@ -85,6 +113,8 @@ server.js
 
 ```javascript
 // ...
+
+var validator = require("uniform-validation");
 
 // On POST to /submit, validate the form
 app.post("/submit", validator("www/car.ufm"), function (req, res) {
